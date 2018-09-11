@@ -24,7 +24,7 @@ def generate_data_description(save_dir):
     dataset['att'] = []
     dataset['att_name'] = []
     dataset['selected_attribute'] = range(51)
-    # load PETA.MAT
+    # load Rap_annotation.mat
     data = loadmat(open('./dataset/rap/RAP_annotation/RAP_annotation.mat', 'r'))
     for idx in range(51):
         dataset['att_name'].append(data['RAP_annotation'][0][0][6][idx][0][0])
@@ -44,7 +44,7 @@ def create_trainvaltest_split(traintest_split_file):
     partition['trainval'] = []
     partition['test'] = []
     partition['weight_trainval'] = []
-    # load PETA.MAT
+    # load RAP_annotation.mat
     data = loadmat(open('./dataset/rap/RAP_annotation/RAP_annotation.mat', 'r'))
     for idx in range(5):
         trainval = (data['RAP_annotation'][0][0][0][idx][0][0][0][0][0,:]-1).tolist()

@@ -24,7 +24,7 @@ def generate_data_description(save_dir):
     dataset['att'] = []
     dataset['att_name'] = []
     dataset['selected_attribute'] = range(26)
-    # load PETA.MAT
+    # load ANNOTATION.MAT
     data = loadmat(open('./dataset/pa100k/annotation.mat', 'r'))
     for idx in range(26):
         dataset['att_name'].append(data['attributes'][idx][0][0])
@@ -55,7 +55,7 @@ def create_trainvaltest_split(traintest_split_file):
     partition['test'] = []
     partition['weight_trainval'] = []
     partition['weight_train'] = []
-    # load PETA.MAT
+    # load ANNOTATION.MAT
     data = loadmat(open('./dataset/pa100k/annotation.mat', 'r'))
     train = range(80000) 
     val = [i+80000 for i in range(10000)]
