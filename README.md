@@ -42,7 +42,7 @@
    ```
    sh script/experiment/train.sh
    ``` 
-partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing)
+partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing).
 </font>
 
 ## Citation
