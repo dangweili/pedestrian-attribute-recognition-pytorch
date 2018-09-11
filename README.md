@@ -39,9 +39,11 @@
 
 ## Train the model
 <font face="Times New Roman" size=4>
+
    ```
    sh script/experiment/train.sh
    ``` 
+
 partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing).
 </font>
 
