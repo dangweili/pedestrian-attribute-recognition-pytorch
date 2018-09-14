@@ -21,13 +21,15 @@ class AttDataset(data.Dataset):
         if os.path.exists( dataset ):
             self.dataset = pickle.load(open(dataset))
         else:
+            print dataset + ' does not exist in dataset.'
             raise ValueError
         if os.path.exists( partition ):
             self.partition = pickle.load(open(partition))
         else:
+            print partition + ' does not exist in dataset.'
             raise ValueError
         if not self.partition.has_key(split):
-            print split + 'does not exist in dataset.'
+            print split + ' does not exist in dataset.'
             raise ValueError
         
         if partition_idx > len(self.partition[split])-1:
