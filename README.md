@@ -43,8 +43,15 @@
    ```
    sh script/experiment/train.sh
    ``` 
+</font>
 
-partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing).
+## Test the model
+<font face="Times New Roman" size=4>
+
+   ```
+   sh script/experiment/test.sh
+   ```
+
 </font>
 
 ## Citation
@@ -61,3 +68,10 @@ Please cite this paper in your publications if it helps your research:
     year = {2015}
 }
 ```
+
+## Thanks
+<font face="Times New Roman" size=4>
+
+Partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing).
+
+</font>

@@ -71,6 +71,7 @@ class Config(object):
         # utils
         parser.add_argument('--resume', type=str2bool, default=False)
         parser.add_argument('--ckpt_file', type=str, default='')
+        parser.add_argument('--load_model_weight', type=str2bool, default=False)
         parser.add_argument('--model_weight_file', type=str, default='')
         parser.add_argument('--test_only', type=str2bool, default=False)
         parser.add_argument('--exp_dir', type=str, default='')
@@ -134,6 +135,11 @@ class Config(object):
         if self.resume:
             if self.ckpt_file == '':
                 print 'Please input the ckpt_file if you want to resume training'
+                raise ValueError
+        self.load_model_weight = args.load_model_weight
+        if self.load_model_weight:
+            if self.model_weight_file == '':
+                print 'Please input the model_weight_file if you want to load model weight'
                 raise ValueError
         self.model_weight_file = args.model_weight_file
         self.test_only = args.test_only
@@ -268,6 +274,12 @@ optimizer = optim.SGD(
     weight_decay = cfg.sgd_weight_decay)
 # bind the model and optimizer
 modules_optims = [model, optimizer]
+
+# load model weight if necessary
+if cfg.load_model_weight:
+    map_location = (lambda storage, loc:storage)
+    ckpt = torch.load(cfg.model_weight_file, map_location=map_location)
+    model.load_state_dict(ckpt['state_dicts'][0], strict=False)
 
 ### Resume or not ###
 if cfg.resume:
