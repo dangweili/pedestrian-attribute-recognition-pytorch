@@ -31,7 +31,7 @@ def generate_data_description(save_dir):
 
     for idx in range(19000):
         dataset['image'].append('%05d.png'%(idx+1))
-        dataset['att'].append(data['peta'][0][0][0][idx, 5:].tolist())
+        dataset['att'].append(data['peta'][0][0][0][idx, 4:].tolist())
     with open(os.path.join(save_dir, 'peta_dataset.pkl'), 'w+') as f:
         pickle.dump(dataset, f)
 
@@ -58,8 +58,8 @@ def create_trainvaltest_split(traintest_split_file):
         partition['trainval'].append(trainval)
         partition['test'].append(test)
         # weight
-        weight_trainval = np.mean(data['peta'][0][0][0][trainval, 5:].astype('float32')==1, axis=0).tolist()
-        weight_train = np.mean(data['peta'][0][0][0][train, 5:].astype('float32')==1, axis=0).tolist()
+        weight_trainval = np.mean(data['peta'][0][0][0][trainval, 4:].astype('float32')==1, axis=0).tolist()
+        weight_train = np.mean(data['peta'][0][0][0][train, 4:].astype('float32')==1, axis=0).tolist()
         partition['weight_trainval'].append(weight_trainval)
         partition['weight_train'].append(weight_train)
     with open(traintest_split_file, 'w+') as f:
