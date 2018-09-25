@@ -137,11 +137,11 @@ class Config(object):
                 print 'Please input the ckpt_file if you want to resume training'
                 raise ValueError
         self.load_model_weight = args.load_model_weight
+        self.model_weight_file = args.model_weight_file
         if self.load_model_weight:
             if self.model_weight_file == '':
                 print 'Please input the model_weight_file if you want to load model weight'
                 raise ValueError
-        self.model_weight_file = args.model_weight_file
         self.test_only = args.test_only
         self.exp_dir = args.exp_dir
         self.exp_subpath = args.exp_subpath
