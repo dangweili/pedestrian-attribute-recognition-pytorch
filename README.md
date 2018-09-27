@@ -74,4 +74,6 @@ Please cite this paper in your publications if it helps your research:
 
 Partial codes are based on the repository from [Houjing Huang](https://github.com/huanghoujing).
 
+The code should only be used for academic research.
+
 </font>
