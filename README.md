@@ -54,6 +54,15 @@
 
 </font>
 
+## Demo 
+<font face="Times New Roman" size=4>
+
+   ```
+   python script/experiment/demo.py
+   ```
+
+</font>
+
 ## Citation
 <font face="Times New Roman" size=4>
 Please cite this paper in your publications if it helps your research:
