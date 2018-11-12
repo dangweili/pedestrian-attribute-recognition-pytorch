@@ -9,7 +9,7 @@
 
 2. Download and prepare the dataset as follow:
 
-    a. PETA [Links](https://pan.baidu.com/s/1q8nsydT7xkDjZJOxvPcoEw), passwd: 5vep
+    a. PETA [Baidu Yun](https://pan.baidu.com/s/1q8nsydT7xkDjZJOxvPcoEw), passwd: 5vep, or [Google Drive](https://drive.google.com/open?id=1q4cux17K3zNBgIrDV4FtcHJPLzXNKfYG).
     
     ```
     ./dataset/peta/images/*.png
@@ -20,7 +20,7 @@
     python script/dataset/transform_peta.py 
     ```
 
-    b. RAP [Links](http://rap.idealtest.org/)
+    b. RAP [Links](http://rap.idealtest.org/).
     ```
     ./dataset/rap/RAP_dataset/*.png
     ./dataset/rap/RAP_annotation/RAP_annotation.mat
@@ -34,7 +34,9 @@
     ./dataset/pa100k/data/*.png
     ./dataset/pa100k/annotation.mat
     ``` 
-    ```python script/dataset/transform_pa100k.py ```
+    ```
+    python script/dataset/transform_pa100k.py 
+    ```
 </font>
 
 ## Train the model
