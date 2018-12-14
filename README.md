@@ -37,6 +37,15 @@
     ```
     python script/dataset/transform_pa100k.py 
     ```
+
+    d. RAP(v2) [Links](https://drive.google.com/open?id=1hoPIB5NJKf3YGMvLFZnIYG5JDcZTxHph).
+    ```
+    ./dataset/rap2/RAP_dataset/*.png
+    ./dataset/rap2/RAP_annotation/RAP_annotation.mat
+    ```
+    ```
+    python script/dataset/transform_rap2.py
+    ```
 </font>
 
 ## Train the model

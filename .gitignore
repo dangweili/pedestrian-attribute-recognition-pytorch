@@ -1,6 +1,14 @@
 ## General
-./exp
-./script/dataset/transform_rap2.py
+exp
+dataset/peta/*
+dataset/pa100k/*
+dataset/rap/*
+dataset/rap2/*
+!dataset/peta/.gitsave
+!dataset/rap/.gitsave
+!dataset/pa100k/.gitsave
+!dataset/rap2/.gitsave
+
 # Compiled Object files
 *.slo
 *.lo

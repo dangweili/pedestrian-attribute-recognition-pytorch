@@ -42,7 +42,7 @@ class Config(object):
         parser.add_argument('--set_seed', type=str2bool, default=False)
         ## dataset parameter
         parser.add_argument('--dataset', type=str, default='peta',
-                choices=['peta','rap', 'pa100k'])
+                choices=['peta','rap', 'pa100k', 'rap2'])
         parser.add_argument('--split', type=str, default='trainval',
                             choices=['trainval', 'train'])
         parser.add_argument('--test_split', type=str, default='test')
@@ -98,10 +98,12 @@ class Config(object):
         datasets['peta'] = './dataset/peta/peta_dataset.pkl'
         datasets['rap'] = './dataset/rap/rap_dataset.pkl'
         datasets['pa100k'] = './dataset/pa100k/pa100k_dataset.pkl'
+        datasets['rap2'] = './dataset/rap2/rap2_dataset.pkl'
         partitions = dict()
         partitions['peta'] = './dataset/peta/peta_partition.pkl'
         partitions['rap'] = './dataset/rap/rap_partition.pkl'
         partitions['pa100k'] = './dataset/pa100k/pa100k_partition.pkl'
+        partitions['rap2'] = './dataset/rap2/rap2_partition.pkl'
         
         self.dataset_name = args.dataset
         if not datasets.has_key(args.dataset) or not partitions.has_key(args.dataset):
