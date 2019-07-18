@@ -20,7 +20,7 @@
     python script/dataset/transform_peta.py 
     ```
 
-    b. RAP [Links](http://rap.idealtest.org/), or [Google Drive](https://drive.google.com/open?id=1FkXlpbk3R-M_vkvM8ByeAZVAMzN6vUOr).
+    b. RAP [Google Drive](https://drive.google.com/open?id=1FkXlpbk3R-M_vkvM8ByeAZVAMzN6vUOr).
     ```
     ./dataset/rap/RAP_dataset/*.png
     ./dataset/rap/RAP_annotation/RAP_annotation.mat
