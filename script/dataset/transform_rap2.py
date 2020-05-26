@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import random
-import cPickle as pickle
+import pickle
 from scipy.io import loadmat
 
 np.random.seed(0)
@@ -24,7 +24,7 @@ def generate_data_description(save_dir):
     dataset['att'] = []
     dataset['att_name'] = []
     # load RAP_annotation.mat
-    data = loadmat(open('./dataset/rap2/RAP_annotation/RAP_annotation.mat', 'r'))
+    data = loadmat(open('./dataset/rap2/RAP_annotation/RAP_annotation.mat', 'rb'))
     dataset['selected_attribute'] = (data['RAP_annotation'][0][0][3][0,:]-1).tolist()
     for idx in range(152):
         dataset['att_name'].append(data['RAP_annotation'][0][0][2][idx][0][0])
@@ -33,7 +33,7 @@ def generate_data_description(save_dir):
         dataset['image'].append(data['RAP_annotation'][0][0][0][idx][0][0])
         dataset['att'].append(data['RAP_annotation'][0][0][1][idx, :].tolist())
 
-    with open(os.path.join(save_dir, 'rap2_dataset.pkl'), 'w+') as f:
+    with open(os.path.join(save_dir, 'rap2_dataset.pkl'), 'wb+') as f:
         pickle.dump(dataset, f)
 
 def create_trainvaltest_split(traintest_split_file):
@@ -48,7 +48,7 @@ def create_trainvaltest_split(traintest_split_file):
     partition['weight_train'] = []
     partition['weight_trainval'] = []
     # load RAP_annotation.mat
-    data = loadmat(open('./dataset/rap2/RAP_annotation/RAP_annotation.mat', 'r'))
+    data = loadmat(open('./dataset/rap2/RAP_annotation/RAP_annotation.mat', 'rb'))
     for idx in range(5):
         train = (data['RAP_annotation'][0][0][4][0, idx][0][0][0][0,:]-1).tolist()
         val = (data['RAP_annotation'][0][0][4][0, idx][0][0][1][0,:]-1).tolist()
@@ -64,7 +64,7 @@ def create_trainvaltest_split(traintest_split_file):
         partition['weight_train'].append(weight_train)
         partition['weight_trainval'].append(weight_trainval)
 
-    with open(traintest_split_file, 'w+') as f:
+    with open(traintest_split_file, 'wb+') as f:
         pickle.dump(partition, f)
 
 if __name__ == "__main__":

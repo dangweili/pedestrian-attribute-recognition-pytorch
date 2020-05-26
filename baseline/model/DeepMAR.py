@@ -15,23 +15,23 @@ class DeepMAR_ResNet50(nn.Module):
         super(DeepMAR_ResNet50, self).__init__()
         
         # init the necessary parameter for netwokr structure
-        if kwargs.has_key('num_att'):
+        if 'num_att' in kwargs:
             self.num_att = kwargs['num_att'] 
         else:
             self.num_att = 35
-        if kwargs.has_key('last_conv_stride'):
+        if 'last_conv_stride' in kwargs:
             self.last_conv_stride = kwargs['last_conv_stride']
         else:
             self.last_conv_stride = 2
-        if kwargs.has_key('drop_pool5'):
+        if 'drop_pool5' in kwargs:
             self.drop_pool5 = kwargs['drop_pool5']
         else:
             self.drop_pool5 = True 
-        if kwargs.has_key('drop_pool5_rate'):
+        if 'drop_pool5_rate' in kwargs:
             self.drop_pool5_rate = kwargs['drop_pool5_rate']
         else:
             self.drop_pool5_rate = 0.5
-        if kwargs.has_key('pretrained'):
+        if 'pretrained' in kwargs:
             self.pretrained = kwargs['pretrained'] 
         else:
             self.pretrained = True
@@ -66,7 +66,7 @@ class DeepMAR_ResNet50_ExtractFeature(object):
 
         # imgs should be Variable
         if not isinstance(imgs, Variable):
-            print 'imgs should be type: Variable'
+            print('imgs should be type: Variable')
             raise ValueError
         score = self.model(imgs)
         score = score.data.cpu().numpy()

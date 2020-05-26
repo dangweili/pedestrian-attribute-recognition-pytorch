@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import random
-import cPickle as pickle
+import pickle
 from scipy.io import loadmat
 
 np.random.seed(0)
@@ -25,14 +25,14 @@ def generate_data_description(save_dir):
     dataset['att_name'] = []
     dataset['selected_attribute'] = range(35)
     # load PETA.MAT
-    data = loadmat(open('./dataset/peta/PETA.mat', 'r'))
+    data = loadmat(open('./dataset/peta/PETA.mat', 'rb'))
     for idx in range(105):
         dataset['att_name'].append(data['peta'][0][0][1][idx,0][0])
 
     for idx in range(19000):
         dataset['image'].append('%05d.png'%(idx+1))
         dataset['att'].append(data['peta'][0][0][0][idx, 4:].tolist())
-    with open(os.path.join(save_dir, 'peta_dataset.pkl'), 'w+') as f:
+    with open(os.path.join(save_dir, 'peta_dataset.pkl'), 'wb+') as f:
         pickle.dump(dataset, f)
 
 def create_trainvaltest_split(traintest_split_file):
@@ -47,7 +47,7 @@ def create_trainvaltest_split(traintest_split_file):
     partition['weight_trainval'] = []
     partition['weight_train'] = []
     # load PETA.MAT
-    data = loadmat(open('./dataset/peta/PETA.mat', 'r'))
+    data = loadmat(open('./dataset/peta/PETA.mat', 'rb'))
     for idx in range(5):
         train = (data['peta'][0][0][3][idx][0][0][0][0][:,0]-1).tolist()
         val = (data['peta'][0][0][3][idx][0][0][0][1][:,0]-1).tolist()
@@ -62,7 +62,7 @@ def create_trainvaltest_split(traintest_split_file):
         weight_train = np.mean(data['peta'][0][0][0][train, 4:].astype('float32')==1, axis=0).tolist()
         partition['weight_trainval'].append(weight_trainval)
         partition['weight_train'].append(weight_train)
-    with open(traintest_split_file, 'w+') as f:
+    with open(traintest_split_file, 'wb+') as f:
         pickle.dump(partition, f)
 
 if __name__ == "__main__":

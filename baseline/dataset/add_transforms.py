@@ -32,7 +32,7 @@ class AddPad(object):
             self.pad_u = int(self.padding[2])
             self.pad_d = int(self.padding[3])
         else:
-            print "The type of padding is not right."
+            print("The type of padding is not right.")
             raise ValueError
         if self.pad_l <0 or self.pad_r < 0 or self.pad_u < 0 or self.pad_d < 0:
             raise ValueError

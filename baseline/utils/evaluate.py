@@ -32,10 +32,10 @@ def extract_feat(feat_func, dataset, **kwargs):
 
 # attribute recognition evaluation 
 def attribute_evaluate(feat_func, dataset, **kwargs):
-    print "extracting features for attribute recognition"
+    print("extracting features for attribute recognition")
     pt_result = extract_feat(feat_func, dataset)
     # obain the attributes from the attribute dictionary
-    print "computing attribute recognition result"
+    print("computing attribute recognition result")
     N = pt_result.shape[0] 
     L = pt_result.shape[1]
     gt_result = np.zeros(pt_result.shape)
@@ -59,7 +59,7 @@ def attribute_evaluate_lidw(gt_result, pt_result):
     # obtain the label-based and instance-based accuracy
     # compute the label-based accuracy
     if gt_result.shape != pt_result.shape:
-        print 'Shape beteen groundtruth and predicted results are different'
+        print('Shape beteen groundtruth and predicted results are different')
     # compute the label-based accuracy
     result = {}
     gt_pos = np.sum((gt_result == 1).astype(float), axis=0)

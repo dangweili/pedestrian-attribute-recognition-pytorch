@@ -8,7 +8,7 @@ import torch
 import torchvision.transforms as transforms
 from torch.autograd import Variable
 from torch.nn.parallel import DataParallel
-import cPickle as pickle
+import pickle
 import time
 import argparse
 from PIL import Image, ImageFont, ImageDraw
@@ -58,7 +58,7 @@ class Config(object):
         self.model_weight_file = args.model_weight_file
         if self.load_model_weight:
             if self.model_weight_file == '':
-                print 'Please input the model_weight_file if you want to load model weight'
+                print('Please input the model_weight_file if you want to load model weight')
                 raise ValueError
         # dataset 
         datasets = dict()
@@ -69,7 +69,7 @@ class Config(object):
         if args.dataset in datasets:
             dataset = pickle.load(open(datasets[args.dataset]))
         else:
-            print '%s does not exist.'%(args.dataset)
+            print('%s does not exist.'%(args.dataset))
             raise ValueError
         self.att_list = [dataset['att_name'][i] for i in dataset['selected_attribute']]
         
@@ -127,7 +127,7 @@ score = model(img_var).data.cpu().numpy()
 # show the score in command line
 for idx in range(len(cfg.att_list)):
     if score[0, idx] >= 0:
-        print '%s: %.2f'%(cfg.att_list[idx], score[0, idx])
+        print('%s: %.2f'%(cfg.att_list[idx], score[0, idx]))
 
 # show the score in the image
 img = img.resize(size=(256, 512), resample=Image.BILINEAR)
